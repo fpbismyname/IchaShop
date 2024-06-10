@@ -4,8 +4,6 @@ $user = "root";
 $pass = "";
 $db_name = "db_shop";
 
-$regis = false;
-
 $db = mysqli_connect($hostname, $user, $pass, $db_name);
 
 if ($db->connect_error) {
@@ -18,21 +16,23 @@ if ($db->connect_error) {
 function registerUser($username, $password, $email, $db)
 {
     $session = new Session();
-    $session->init();
+    $session->setSession("regis", true);
     
     $sql = "INSERT INTO user(role, username, password, email) VALUES('user', '$username', '".password_hash($password, PASSWORD_DEFAULT)."', '$email')";
     
     $execute = $db->query($sql);
     
     if ($execute) {
-        $_SESSION["regis"] = true;
+        $session->setSession("regis", true);
     }
 }
 
 function loginUser($username, $password, $db)
 {
+    $session = new Session();
+    $session->setSession("login", true);
 
-    $sql = "SELECT role, password FROM user WHERE username='$username'";
+    $sql = "SELECT id, role, password FROM user WHERE username='$username'";
     
     $execute = $db->query($sql);
 

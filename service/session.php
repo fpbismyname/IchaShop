@@ -4,6 +4,17 @@ class Session{
     public function init(){
         session_start();
     }
+
+    public function getSession($key){
+        $this->init();
+        return $_SESSION[$key];
+    }
+
+    public function setSession($key, $value){
+        $this->init();
+        $_SESSION[$key] = $value;
+    }
+
     public function register($username, $password, $current_email, $database){
 
         //Ngambil data Form register
@@ -16,7 +27,7 @@ class Session{
         } else {
             try {
                 registerUser($user, $pass, $email, $database);
-                $this->navigate("login.php");
+                $this->navigate("index.php");
             } catch (Exception $e) {
                 echo "<script>alert('Username sudah terdaftar !')</script>";
             }
@@ -38,11 +49,15 @@ class Session{
                     $this->alert("Akun tidak ada !");
                 } else {
                     if (($account["role"] == "admin") && password_verify($password, $account["password"])){
-                        $this->navigate("AdminPage.php");
+                        $this->setSession('user', $account['id']);
+                        $this->navigate("./page/AdminPage.php");
                     } else
                     if (($account["role"] == "user") && password_verify($password, $account["password"])){
-                        $this->navigate("MainPage.php");
-                    } 
+                        $this->setSession('user', $account['id']);
+                        $this->navigate("./page/MainPage.php");
+                    } else {
+                        $this->alert("Akun tidak ada !");
+                    }
                 }
             } catch (Exception $e) {
                 $this->alert("$e");

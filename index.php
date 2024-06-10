@@ -12,7 +12,6 @@
     include "./service/session.php";
 
     $session = new Session();
-    $session->init();
     
     //Setup Login
     if (isset($_POST["login"])) {
@@ -38,7 +37,7 @@
                 <i class="bi bi-person-circle"></i>
                 <h5 class="text-center font-weight-bold">Login ke IchaShop</h5>
             </div>
-            <form action="login.php" method="POST">
+            <form action="index.php" method="POST">
                 <div class="mb-2">
                     <input class="form-control" placeholder="Username" type="text" name="username" autocomplete="off" />
                 </div>

@@ -39,7 +39,7 @@
                     <input class="btn btn-primary font-weight-bold" type="submit" value="Daftar" name="daftar" />
                 </div>
                 <div class="mb-2">
-                    <p>Sudah punya akun ? <a class="card-link" href="./login.php">Masuk disini</a></p>
+                    <p>Sudah punya akun ? <a class="card-link" href="./index.php">Masuk disini</a></p>
                 </div>
             </form>
         </div>
