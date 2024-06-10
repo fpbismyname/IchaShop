@@ -34,7 +34,7 @@
         }
     }
     //protect privillage
-    $role = $session->getSession("role", true);
+    $role = $session->getSession("role", false);
     if ($role == "admin"){
         $session->navigate("./page/AdminPage.php");
     } else if ($role == "user") {
