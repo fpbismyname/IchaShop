@@ -7,9 +7,11 @@
     <title>IchaShop - LoginPage</title>
     <!-- logika daftar -->
     <?php
-    include "./layout/bootstrap.html";
+    include "./layout/bootstrap.php";
     include "./service/database.php";
     include "./service/session.php";
+    path("./layout/style.css");
+
 
     if (isset($_POST["daftar"])) {
         $session = new Session();
@@ -18,7 +20,7 @@
     ?>
 </head>
 
-<body>
+<body id="RegisterPage">
     <div class="container d-flex min-vh-100 align-items-center justify-content-center">
         <div class="card p-5">
             <div class="text-center mb-5">

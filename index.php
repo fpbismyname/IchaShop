@@ -7,9 +7,11 @@
     <title>IchaShop - LoginPage</title>
     <!-- logika login  -->
     <?php
-    include "./layout/bootstrap.html";
+    include "./layout/bootstrap.php";
     include "./service/database.php";
     include "./service/session.php";
+    path("./layout/style.css");
+
 
     $session = new Session();
     
@@ -30,7 +32,7 @@
     ?>
 </head>
 
-<body>
+<body id="LoginPage">
     <div class="container d-flex flex-column min-vh-100 align-items-center justify-content-center">
         <div class="card p-5">
             <div class="text-center mb-5">

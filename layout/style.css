@@ -1,7 +1,30 @@
-.card{
-    background-color: rgb(212, 175, 255);
-    border-radius: 20px;
-}
 .bi{
     font-size: 24pt;
+}
+
+/* navbar */
+.navbar{
+    background-color: rgb(217, 120, 255);
+}
+.navbar-brand{
+    color: white;
+    font-weight: bold;
+}
+.navbar-brand:hover{
+    color: rgb(155, 0, 134);
+    font-weight: bold;
+}
+.nav-item, .nav-link{
+    color: white;
+    font-weight: bold;
+}
+
+#MainPage{
+    background-color: rgb(244, 187, 255);
+}
+#AdminPage{
+    background-color: rgb(105, 27, 121);
+}
+#LoginPage, #RegisterPage{
+    background-color: rgb(232, 140, 255);
 }
