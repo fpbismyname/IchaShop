@@ -11,11 +11,20 @@
     include "./service/database.php";
     include "./service/session.php";
     path("./layout/style.css");
+    $session = new Session();
 
-
+    //register
     if (isset($_POST["daftar"])) {
-        $session = new Session();
         $session->register($_POST["username"], $_POST["password"], $_POST["email"], $db);
+    }
+
+    //Protected privillage
+    //protect privillage
+    $role = $session->getSession("role", true);
+    if ($role == "admin"){
+        $session->navigate("./page/AdminPage.php");
+    } else if ($role == "user") {
+        $session->navigate("./page/MainPage.php");
     }
     ?>
 </head>

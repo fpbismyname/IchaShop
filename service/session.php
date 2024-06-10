@@ -18,10 +18,14 @@ class Session
         }
     }
 
-    public function setSession($key, $value)
+    public function setSession($key, $value, $session)
     {
-        $this->init();
-        $_SESSION[$key] = $value;
+        if ($session == true) {
+            $this->init();
+            $_SESSION[$key] = $value;
+        } else {
+            $_SESSION[$key] = $value;
+        }
     }
 
 
@@ -57,23 +61,29 @@ class Session
             $this->alert("Data form tidak boleh kosong !");
         } else {
             try {
-                $account = loginUser($username, $password, $database);
-                if (empty($account) && !password_verify($password, $account["password"])) {
-                    $this->alert("Akun tidak ada !");
-                } else {
-                    if (($account["role"] == "admin") && password_verify($password, $account["password"])) {
-                        $this->setSession('user', $account['id']);
-                        $this->setSession('role', $account['role']);
-                        $this->navigate("./page/AdminPage.php");
-                    } else
-                    if (($account["role"] == "user") && password_verify($password, $account["password"])) {
-                        $this->setSession('user', $account['id']);
-                        $this->setSession('role', $account['role']);
-                        $this->navigate("./page/MainPage.php");
-                    } else {
+                $account = loginUser($username, $database);
+
+                if (!empty($account)){
+                    if (!password_verify($password, $account["password"])) {
                         $this->alert("Akun tidak ada !");
+                    } else {
+                        if (($account["role"] == "admin") || password_verify($password, $account["password"])) {
+                            $this->setSession('user', $account['id'], false);
+                            $this->setSession('role', $account['role'], false);
+                            $this->navigate("./page/AdminPage.php");
+                        } else
+                        if (($account["role"] == "user") && password_verify($password, $account["password"])) {
+                            $this->setSession('user', $account['id'], false);
+                            $this->setSession('role', $account['role'], false);
+                            $this->navigate("./page/MainPage.php");
+                        } else {
+                            $this->alert("Akun tidak ada !");
+                        }
                     }
+                } else {
+                    $this->alert("Akun tidak ada !");
                 }
+
             } catch (Exception $e) {
                 $this->alert("$e");
             }

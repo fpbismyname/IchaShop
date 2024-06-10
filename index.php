@@ -14,7 +14,11 @@
 
 
     $session = new Session();
-    
+    $session->init();
+
+    if (!isset($_SESSION['role'])){
+        $session->setSession('role',null, false);
+    }
     //Setup Login
     if (isset($_POST["login"])) {
         echo $session->login($_POST["username"], $_POST["password"], $db);

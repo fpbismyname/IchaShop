@@ -9,6 +9,7 @@
     include "../layout/bootstrap.php";
     include "../service/session.php";
     $session = new Session();
+    
     path("../layout/style.css");
     ?>
 </head>

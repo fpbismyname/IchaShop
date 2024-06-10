@@ -16,27 +16,37 @@ if ($db->connect_error) {
 function registerUser($username, $password, $email, $db)
 {
     $session = new Session();
-    $session->setSession("regis", true);
     
     $sql = "INSERT INTO user(role, username, password, email) VALUES('user', '$username', '".password_hash($password, PASSWORD_DEFAULT)."', '$email')";
     
     $execute = $db->query($sql);
     
     if ($execute) {
-        $session->setSession("regis", true);
+        $session->setSession("regis", true, true);
     }
 }
 
-function loginUser($username, $password, $db)
+function loginUser($username, $db)
 {
     $session = new Session();
-    $session->setSession("login", true);
+    $session->setSession("login", true, false);
 
     $sql = "SELECT id, role, password FROM user WHERE username='$username'";
     
     $execute = $db->query($sql);
 
     $result = $execute->fetch_assoc();
+    if (!empty($result)){
+        return $result;
+    } else{
+        return null;
+    }
+}
 
-    return $result;
+function getDataProduk($db){
+    $sql = "SELECT * FROM product";
+
+    $execute = $db->query($sql);
+
+    return $execute;
 }
