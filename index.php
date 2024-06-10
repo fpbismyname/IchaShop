@@ -33,6 +33,13 @@
             unset($_SESSION["regis"]);
         }
     }
+    //protect privillage
+    $role = $session->getSession("role", true);
+    if ($role == "admin"){
+        $session->navigate("./page/AdminPage.php");
+    } else if ($role == "user") {
+        $session->navigate("./page/MainPage.php");
+    }
     ?>
 </head>
 

@@ -11,6 +11,14 @@
     $session = new Session();
     
     path("../layout/style.css");
+
+    //protect privillage
+    $role = $session->getSession("role", true);
+    if ($role == "user"){
+        $session->navigate("./MainPage.php");
+    } else if ($role == null || empty($role)) {
+        $session->navigate("../index.php");
+    }
     ?>
 </head>
 

@@ -12,6 +12,14 @@
     path("../layout/style.css");
 
     $session = new Session();
+
+    //protect privillage
+    $role = $session->getSession("role", true);
+    if ($role == "admin"){
+        $session->navigate("./AdminPage.php");
+    } else if ($role == null || empty($role)) {
+        $session->navigate("../index.php");
+    }
     ?>
 </head>
 
