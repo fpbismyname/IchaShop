@@ -9,7 +9,7 @@
     </div>
     <div class="container d-flex flex-wrap justify-content-center">
         <?php while($row = $produk->fetch_assoc()) {?>
-        <div class="card border-0 shadow m-4 d-flex p-2" style="width:18rem; height:fit-content; cursor:pointer;">
+        <div class="card border-0 shadow m-4 d-flex p-2" style="width:18rem; height:fit-content; cursor:pointer;" aria-valuetext="">
             <img class="card-image-top" src="https://learning.enggar.net/wp-content/uploads/2017/05/WebLayoutElements.png" width="250px">
             <div class="card-body">
                 <h5 class="card-title text-center"><?php echo $row["nama"]?></h5>

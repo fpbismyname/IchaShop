@@ -1,3 +1,9 @@
+<?php
+if (isset($_POST["logout"])) {
+  $session->setSession("role", null, true);
+  $session->navigate("../index.php");
+}
+?>
 <nav class="navbar navbar-expand sticky-top">
   <i class="bi bi-bag-heart-fill d-flex mx-3 text-light"></i>
   <div class="container-fluid ml-0">
@@ -16,6 +22,9 @@
         <li class="nav-item">
           <a class="nav-link" href="../page/navbar/kontak.php">Kontak</a>
         </li>
+        <form method="POST" class="d-flex mx-2">
+          <input class="btn btn-sm btn-outline-danger" type="submit" name="logout" value="Logout" />
+        </form>
     </div>
   </div>
-  </nav>
+</nav>
