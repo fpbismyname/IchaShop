@@ -13,6 +13,10 @@
     path("./layout/user/style.css");
     $session = new Session();
 
+    if (!isset($_SESSION['role'])){
+        $session->setSession('role',null, false);
+    }
+
     //register
     if (isset($_POST["daftar"])) {
         $session->register($_POST["username"], $_POST["password"], $_POST["email"], $db);
@@ -21,6 +25,7 @@
     //Protected privillage
     //protect privillage
     $role = $session->getSession("role", true);
+
     if ($role == "admin"){
         $session->navigate("./page/AdminPage.php");
     } else if ($role == "user") {

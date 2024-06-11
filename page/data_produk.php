@@ -19,6 +19,15 @@
     //memulai sesi
     $session->init();
 
+    //protect privillage
+    $role = $session->getSession("role", false);
+
+    if ($role == "user") {
+        $session->navigate("./MainPage.php");
+    } else if ($role == null || empty($role)) {
+        $session->navigate("../index.php");
+    }
+
     //Navigate
     if (isset($_POST["dt_produk"])) {
         $session->navigate("./data_produk.php");

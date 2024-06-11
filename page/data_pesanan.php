@@ -13,6 +13,14 @@
     $session = new Session();
     //memulai sesi
     $session->init();
+    //protect privillage
+    $role = $session->getSession("role", false);
+    if ($role == "user") {
+        $session->navigate("./MainPage.php");
+    } else if ($role == null || empty($role)) {
+        $session->navigate("../index.php");
+    }
+
 
     if (isset($_POST["dt_produk"])) {
         $session->navigate("./data_produk.php");
