@@ -6,9 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Halaman Admin - IchaShop</title>
     <?php
-    include "../layout/user/bootstrap.php";
-    include "../service/session.php";
-    include "../service/database.php";
+    include "..\layout\user\bootstrap.php";
+    include "..\service\session.php";
+    include "..\service\database.php";
     $session = new Session();
 
     //fix resubmission
@@ -17,7 +17,7 @@
     $produk = getDataProduk($db);
 
     path("../layout/user/style.css");
-    
+
     //memulai sesi
     $session->init();
 
