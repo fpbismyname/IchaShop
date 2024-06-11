@@ -9,7 +9,7 @@ try {
                 <h5 class="card-title text-center"><?php echo $row["nama"] ?></h5>
                 <p class="card-subtitle text-center p-3">Rp.<?php echo $row["harga"] ?></p>
                 <p class="text-wrap"><?php echo $row["detail"] ?></p>
-                    <a href="../layout/admin/crud/update.php?id=<?php echo $row["id"] ?>" class="btn btn-primary mx-2" >Edit</a>
+                    <a href="../../layout/admin/crud/update.php?id=<?php echo $row["id"] ?>" class="btn btn-primary mx-2" >Edit</a>
                     <a href="#" class="btn btn-danger mx-2">Delete</a>
             </div>
         </div>

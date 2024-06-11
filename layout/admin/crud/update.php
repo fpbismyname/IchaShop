@@ -30,7 +30,7 @@
         $gambar_name = $_FILES["gambar_barang"]["name"];
         $detail = $_POST["deskripsi_barang"];
         $gambar_des_data = "../../../img/" . $gambar_name;
-        $gambar_des = "../img/" . $gambar_name;
+        $gambar_des = "../../img/" . $gambar_name;
 
         if ($barang == "" || $kategori == "" || $harga == "" || $gambar == null || $detail == "") {
             $session->alert("Form tidak boleh ada yang kosong");
@@ -38,7 +38,7 @@
             if (move_uploaded_file($gambar_temp, $gambar_des_data)) {
                 try {
                     if (updateDataProduk($db, $id, $barang, $kategori, $harga, $gambar_des, $detail)) {
-                        $session->navigate("../../../page/AdminPage.php");
+                        $session->navigate("../../../page/menu_admin/data_produk.php");
                         $session->setSession("message", "Edit Berhasil !", true);
                         $session->fixResub();
                     } else {
@@ -54,7 +54,7 @@
     }
 
     if(isset($_POST["back"])){
-        $session->navigate("../../../page/AdminPage.php");
+        $session->navigate("../../../page/menu_admin/data_produk.php");
     }
 
     ?>

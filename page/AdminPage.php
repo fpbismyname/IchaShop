@@ -14,21 +14,10 @@
     //fix resubmission
     // $session->fixResub();
 
-    $produk = getDataProduk($db);
-
     path("../layout/user/style.css");
 
     //memulai sesi
     $session->init();
-
-    $session->getSession("message", false);
-
-    if (!isset($_SESSION['message'])) {
-        $session->setSession('message', null, false);
-    } else if (isset($_SESSION['message'])) {
-        echo "<script>alert('" . $session->getSession("message", false) . "')</script>";
-        $session->setSession('message', null, false);
-    }
 
     //protect privillage
     $role = $session->getSession("role", false);
@@ -38,42 +27,43 @@
         $session->navigate("../index.php");
     }
 
+    //Logout
     if (isset($_POST["logout"])) {
         $session->setSession("role", null, false);
         $session->navigate("../index.php");
     }
-    if (isset($_POST["tambah"])) {
-        $session->navigate("../layout/admin/crud/create.php");
-    }
 
+    //Menu
+    if (isset($_POST["dt_produk"])) {
+        $session->navigate("./menu_admin/data_produk.php");
+    }
+    if (isset($_POST["dt_penjualan"])) {
+        $session->navigate("./menu_admin/data_penjualan.php");
+    }
+    if (isset($_POST["dt_pelanggan"])) {
+        $session->navigate("./menu_admin/data_pelanggan.php");
+    }
+    if (isset($_POST["dt_pesanan"])) {
+        $session->navigate("./menu_admin/data_pesanan.php");
+    }
     ?>
 </head>
 
 <body id="AdminPage">
-    <div class="container p-5">
-        <div id="liveAlertPlaceholder"></div>
-        <div class="container d-flex flex-column">
-            <h1 class="text-center text-light">Halaman Admin - IchaShop</h1>
-            <form class="d-flex flex-row border-0 justify-content-center" method="POST">
-                <button type="submit" name="logout" class="btn btn-danger mb-5">Logout</button>
-            </form>
-
-        </div>
-        <div class="container-fluid d-flex flex-row flex-wrap justify-content-center">
-            <div class="container-fluid d-flex flex-row justify-content-center pt-5 pb-3 text-light">
-                <div class="d-flex flex-column justify-content-center">
-                    <div class="d-flex">
-                        <h2>Preview produk</h2>
-                    </div>
-                    <div class="d-flex justify-content-center pt-5">
-                        <form class="" method="POST">
-                            <button type="submit" name="tambah" class="btn btn-primary"><i class="bi bi-plus d-flex flex-row justify-content-center"></i>Tambah barang</button>
-                        </form>
+    <div class="d-flex flex-column">
+        <div class="d-flex flex-row min-vh-100">
+            <div class="d-flex" style="width:25%">
+                <?php include "../layout/admin/sidebar.php" ?>
+            </div>
+            <div class="d-flex flex-column" style="width:100%">
+                <div class="d-flex flex-row justify-content-center p-5">
+                    <div class="d-flex flex-column justify-content-center align-items-center" style="padding-top:100px;">
+                        <h1 class="font-weight-bold text-light text-center">Welcome to Admin</h1>
+                        <i class="bi bi-bag-heart text-center text-light" style="font-size: 250pt;"></i>
+                        <h1 class="font-weight-bold text-light text-center" style="font-size:64pt;">IchaShop</h1>
                     </div>
                 </div>
             </div>
-
-            <?php include "../layout/admin/content.php" ?>
         </div>
     </div>
 </body>
