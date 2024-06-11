@@ -23,7 +23,7 @@ if (isset($_POST["logout"])) {
           <a class="nav-link" href="../page/kontak.php">Kontak</a>
         </li>
         <form method="POST" class="d-flex mx-2">
-          <input class="btn btn-sm btn-outline-danger" type="submit" name="logout" value="Logout" />
+          <input class="btn btn-sm btn-outline-warning" type="submit" name="logout" value="Logout" />
         </form>
     </div>
   </div>
