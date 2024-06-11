@@ -53,7 +53,7 @@
         }
     }
 
-    if(isset($_POST["back"])){
+    if (isset($_POST["back"])) {
         $session->navigate("../../../page/data_produk.php");
     }
 
@@ -77,9 +77,9 @@
                     <div class="mb-3">
                         <select class="form-select" name="kategori_barang" id="kategori">
                             <option value="" selected disabled hidden>Kategori</option>
-                            <option value="1">Baju</option>
-                            <option value="2">Celana</option>
-                            <option value="3">Akresoris</option>
+                            <option value="1">Fashion Pria</option>
+                            <option value="2">Fashion Wanita</option>
+                            <option value="3">Fashion Anak-anak</option>
                         </select>
                     </div>
                     <div class="mb-3">

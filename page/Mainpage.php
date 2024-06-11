@@ -26,8 +26,9 @@
 <body id="MainPage">
     <div class="d-flex flex-column" >
         <?php include "../layout/user/navbar.php"?>
-        <?php include "../layout/user/content.php"?>
+        <?php include "../layout/user/welcome.php"?>
     </div>
+    <?php include "../layout/user/footer.php"?>
 </body>
 
 </html>

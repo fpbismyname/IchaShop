@@ -21,7 +21,7 @@
     }
     //Setup Login
     if (isset($_POST["login"])) {
-        echo $session->login($_POST["username"], $_POST["password"], $db);
+        $session->login($_POST["username"], $_POST["password"], $db);
     }
 
     //Show popup setelah berhasil daftar

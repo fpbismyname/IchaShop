@@ -14,13 +14,13 @@ if (isset($_POST["logout"])) {
           <a class="nav-link" href="../page/Mainpage.php">Beranda</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="../page/navbar/produk.php">Produk</a>
+          <a class="nav-link" href="../page/produk.php">Produk</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="../page/navbar/kategori.php">Kategori</a>
+          <a class="nav-link" href="../page/kategori.php">Kategori</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="../page/navbar/kontak.php">Kontak</a>
+          <a class="nav-link" href="../page/kontak.php">Kontak</a>
         </li>
         <form method="POST" class="d-flex mx-2">
           <input class="btn btn-sm btn-outline-danger" type="submit" name="logout" value="Logout" />

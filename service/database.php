@@ -50,6 +50,13 @@ function getDataProduk($db){
 
     return $execute;
 }
+function getSomeDataProduk($db, $id){
+    $sql = "SELECT * FROM product WHERE id='$id'";
+
+    $execute = $db->query($sql);
+
+    return $execute;
+}
 
 function insertDataProduk($db, $barang, $kategori, $harga, $image, $detail){
     $sql = "INSERT INTO `product`(`kategori_id`, `nama`, `harga`, `detail`, `image`) VALUES ('$kategori', '$barang', '$harga', '$detail', '$image')";
@@ -68,6 +75,18 @@ function updateDataProduk($db, $id, $barang, $kategori, $harga, $image, $detail)
     if ($execute){
         return true;
     } else {
+        return false;
+    }
+}
+
+function deleteProduk($db, $id){
+    $sql="DELETE FROM `product` WHERE id='$id'";
+
+    $execute = $db->query($sql);
+
+    if ($execute){
+        return true;
+    }else{
         return false;
     }
 }
