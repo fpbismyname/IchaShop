@@ -61,3 +61,13 @@ function insertDataProduk($db, $barang, $kategori, $harga, $image, $detail){
         return false;
     }
 }
+function updateDataProduk($db, $id, $barang, $kategori, $harga, $image, $detail){
+    $sql = "UPDATE `product` SET `kategori_id`='$kategori',`nama`='$barang',`harga`='$harga',`detail`='$detail',`image`='$image' WHERE `id`='$id'";
+    $execute = $db->query($sql);
+
+    if ($execute){
+        return true;
+    } else {
+        return false;
+    }
+}

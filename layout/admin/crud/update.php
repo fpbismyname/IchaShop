@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tambah Produk - IchaShop</title>
+    <title>Edit Produk - IchaShop</title>
     <?php
     include "../../user/bootstrap.php";
     include "../../../service/database.php";
@@ -20,7 +20,8 @@
     }
 
     //Check Insert Data
-    if (isset($_POST["create"])) {
+    if (isset($_POST["update"])) {
+        $id = $_GET["id"];
         $barang = $_POST["nama_barang"];
         $kategori = isset($_POST["kategori_barang"]) ? $_POST["kategori_barang"] : '';
         $harga = $_POST["harga_barang"];
@@ -36,9 +37,9 @@
         } else {
             if (move_uploaded_file($gambar_temp, $gambar_des_data)) {
                 try {
-                    if (insertDataProduk($db, $barang, $kategori, $harga, $gambar_des, $detail)) {
+                    if (updateDataProduk($db, $id, $barang, $kategori, $harga, $gambar_des, $detail)) {
                         $session->navigate("../../../page/AdminPage.php");
-                        $session->setSession("message", "Upload Berhasil !", true);
+                        $session->setSession("message", "Edit Berhasil !", true);
                         $session->fixResub();
                     } else {
                         $session->alert("Upload gagal !");
@@ -68,7 +69,7 @@
             <form class="p-5 d-flex justify-content-center" method="POST" enctype="multipart/form-data">
                 <div class="d-flex flex-column justify-content-center text-center">
                     <div class="mb-3">
-                        <h2 class="text-center text-dark">Tambah Produk</h2>
+                        <h2 class="text-center text-dark">Edit Produk</h2>
                     </div>
                     <div class="mb-3">
                         <input placeholder="Nama barang" type="text" class="form-control" name="nama_barang" />
@@ -91,7 +92,7 @@
                         <textarea placeholder="Detail Deskripsi" type="text" style="resize:none; height:200px;" class="form-control" name="deskripsi_barang"></textarea>
                     </div>
                     <div class="mb-3">
-                        <button type="submit" name="create" class="btn btn-primary">Tambah barang</button>
+                        <button type="submit" name="update" class="btn btn-primary">Edit produk</button>
                     </div>
                 </div>
             </form>
