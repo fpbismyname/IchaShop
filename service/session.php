@@ -100,4 +100,14 @@ class Session
     {
         echo "<script>alert('$message')</script>";
     }
+
+    //fix resubmission
+    public function fixResub(){
+        echo "<script>
+            if (window.history.replaceState){
+                window.history.replaceState(null,null,window.location.href);
+            }
+            window.location.reload();
+        </script>";
+    }
 }

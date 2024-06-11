@@ -4,6 +4,6 @@
 
 <?php 
 function path($path) {
-echo '<link rel="stylesheet" type="text/css" href="'.$path.'">';
+echo '<link rel="stylesheet" type="text/css" href="'. $path .'"/>';
 }
 ?>

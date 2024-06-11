@@ -50,3 +50,14 @@ function getDataProduk($db){
 
     return $execute;
 }
+
+function insertDataProduk($db, $barang, $kategori, $harga, $image, $detail){
+    $sql = "INSERT INTO `product`(`kategori_id`, `nama`, `harga`, `detail`, `image`) VALUES ('$kategori', '$barang', '$harga', '$detail', '$image')";
+    $execute = $db->query($sql);
+
+    if ($execute){
+        return true;
+    } else {
+        return false;
+    }
+}

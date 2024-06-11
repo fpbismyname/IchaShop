@@ -7,10 +7,10 @@
     <title>IchaShop - LoginPage</title>
     <!-- logika login  -->
     <?php
-    include "./layout/bootstrap.php";
+    include "./layout/user/bootstrap.php";
     include "./service/database.php";
     include "./service/session.php";
-    path("./layout/style.css");
+    path("./layout/user/style.css");
 
 
     $session = new Session();

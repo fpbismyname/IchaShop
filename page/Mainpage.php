@@ -6,10 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>IchaShop</title>
     <?php
-    include "../layout/bootstrap.php";
+    include "../layout/user/bootstrap.php";
     include "../service/session.php";
 
-    path("../layout/style.css");
+    path("../layout/user/style.css");
 
     $session = new Session();
 
