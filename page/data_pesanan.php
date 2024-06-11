@@ -6,9 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Data pesanan - IchaShop</title>
     <?php
-    include "../../layout/user/bootstrap.php";
-    include "../../service/session.php";
-    include "../../service/database.php";
+    include "../layout/user/bootstrap.php";
+    include "../service/session.php";
+    include "../service/database.php";
 
     $session = new Session();
     //memulai sesi
@@ -30,7 +30,7 @@
     //Logout
     if (isset($_POST["logout"])) {
         $session->setSession("role", null, false);
-        $session->navigate("../../index.php");
+        $session->navigate("../index.php");
     }
 
     //Message
@@ -49,7 +49,7 @@
     <div class="d-flex flex-column">
         <div class="d-flex flex-row min-vh-100">
             <div class="d-flex" style="width:25%">
-                <?php include "../../layout/admin/sidebar.php" ?>
+                <?php include "../layout/admin/sidebar.php" ?>
             </div>
             <div class="d-flex flex-column" style="width:100%">
             </div>

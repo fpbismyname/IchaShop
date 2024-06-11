@@ -35,16 +35,16 @@
 
     //Menu
     if (isset($_POST["dt_produk"])) {
-        $session->navigate("./menu_admin/data_produk.php");
+        $session->navigate("./data_produk.php");
     }
     if (isset($_POST["dt_penjualan"])) {
-        $session->navigate("./menu_admin/data_penjualan.php");
+        $session->navigate("./data_penjualan.php");
     }
     if (isset($_POST["dt_pelanggan"])) {
-        $session->navigate("./menu_admin/data_pelanggan.php");
+        $session->navigate("./data_pelanggan.php");
     }
     if (isset($_POST["dt_pesanan"])) {
-        $session->navigate("./menu_admin/data_pesanan.php");
+        $session->navigate("./data_pesanan.php");
     }
     ?>
 </head>

@@ -4,22 +4,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Data produk - IchaShop</title>
+    <title>Data pelanggan - IchaShop</title>
     <?php
-    include "../../layout/user/bootstrap.php";
-    include "../../service/session.php";
-    include "../../service/database.php";
+    include "../layout/user/bootstrap.php";
+    include "../service/session.php";
+    include "../service/database.php";
 
-    //Ngambil sesi
     $session = new Session();
-
-    //Data Produk
-    $produk = getDataProduk($db);
-
     //memulai sesi
     $session->init();
 
-    //Navigate
     if (isset($_POST["dt_produk"])) {
         $session->navigate("./data_produk.php");
     }
@@ -36,12 +30,7 @@
     //Logout
     if (isset($_POST["logout"])) {
         $session->setSession("role", null, false);
-        $session->navigate("../../index.php");
-    }
-
-    //tambah produk
-    if (isset($_POST["tambah"])) {
-        $session->navigate("../../layout/admin/crud/create.php");
+        $session->navigate("../index.php");
     }
 
     //Message
@@ -60,10 +49,9 @@
     <div class="d-flex flex-column">
         <div class="d-flex flex-row min-vh-100">
             <div class="d-flex" style="width:25%">
-                <?php include "../../layout/admin/sidebar.php" ?>
+                <?php include "../layout/admin/sidebar.php" ?>
             </div>
             <div class="d-flex flex-column" style="width:100%">
-                <?php include "../../layout/admin/crud/read.php" ?>
             </div>
         </div>
     </div>

@@ -11,6 +11,6 @@
             </div>
         </div>
     </div>
-    <?php include "../../layout/admin/content.php" ?>
+    <?php include "../layout/admin/content.php" ?>
 </div>
 </div>
