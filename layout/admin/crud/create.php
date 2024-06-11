@@ -18,7 +18,7 @@
     } else if ($role == null || empty($role)) {
         $session->navigate("../index.php");
     }
-    
+
     //Check Insert Data
     if (isset($_POST["create"])) {
         $barang = $_POST["nama_barang"];
@@ -29,7 +29,7 @@
         $gambar_name = $_FILES["gambar_barang"]["name"];
         $detail = $_POST["deskripsi_barang"];
         $gambar_des_data = "../../../img/" . $gambar_name;
-        $gambar_des = "../img/". $gambar_name;
+        $gambar_des = "../img/" . $gambar_name;
 
         if ($barang == "" || $kategori == "" || $harga == "" || $gambar == null || $detail == "") {
             $session->alert("Form tidak boleh ada yang kosong");
@@ -51,44 +51,50 @@
             }
         }
     }
+
+    if(isset($_POST["back"])){
+        $session->navigate("../../../page/AdminPage.php");
+    }
+
     ?>
 </head>
 
 <body style="background-color: rgb(105, 27, 121);">
-    <div class="container-fluid p-5">
-        <div class="container d-flex flex-row justify-content-center min-vh-100 align-items-center">
-            <div class="card d-flex flex-row justify-content-center border-0 shadow">
-                <form class="p-5 d-flex justify-content-center" method="POST" enctype="multipart/form-data">
-                    <div class="d-flex flex-column justify-content-center text-center">
-                        <div class="mb-3">
-                            <h2 class="text-center text-dark">Tambah Barang</h2>
-                        </div>
-                        <div class="mb-3">
-                            <input placeholder="Nama barang" type="text" class="form-control" name="nama_barang" />
-                        </div>
-                        <div class="mb-3">
-                            <select class="form-select" name="kategori_barang" id="kategori">
-                                <option value="" selected disabled hidden>Kategori</option>
-                                <option value="1">Baju</option>
-                                <option value="2">Celana</option>
-                                <option value="3">Akresoris</option>
-                            </select>
-                        </div>
-                        <div class="mb-3">
-                            <input placeholder="Harga" type="number" class="form-control" name="harga_barang" />
-                        </div>
-                        <div class="mb-3">
-                            <input placeholder="Image" type="file" class="form-control" name="gambar_barang" />
-                        </div>
-                        <div class="mb-3">
-                            <textarea placeholder="Detail Deskripsi" type="text" style="resize:none; height:200px;" class="form-control" name="deskripsi_barang"></textarea>
-                        </div>
-                        <div class="mb-3">
-                            <button type="submit" name="create" class="btn btn-primary">Tambah barang</button>
-                        </div>
+    <div class="container d-flex flex-column justify-content-center min-vh-100 align-items-center">
+        <form class="d-flex flex-row justify-content-center p-5" method="POST">
+            <button type="submit" name="back" class="btn btn-primary d-flex align-items-center"><i class="px-2 bi bi-arrow-left d-flex flex-row justify-content-center"></i>Kembali</button>
+        </form>
+        <div class="card d-flex flex-row justify-content-center border-0 shadow">
+            <form class="p-5 d-flex justify-content-center" method="POST" enctype="multipart/form-data">
+                <div class="d-flex flex-column justify-content-center text-center">
+                    <div class="mb-3">
+                        <h2 class="text-center text-dark">Tambah Barang</h2>
                     </div>
-                </form>
-            </div>
+                    <div class="mb-3">
+                        <input placeholder="Nama barang" type="text" class="form-control" name="nama_barang" />
+                    </div>
+                    <div class="mb-3">
+                        <select class="form-select" name="kategori_barang" id="kategori">
+                            <option value="" selected disabled hidden>Kategori</option>
+                            <option value="1">Baju</option>
+                            <option value="2">Celana</option>
+                            <option value="3">Akresoris</option>
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <input placeholder="Harga" type="number" class="form-control" name="harga_barang" />
+                    </div>
+                    <div class="mb-3">
+                        <input placeholder="Image" type="file" class="form-control" name="gambar_barang" />
+                    </div>
+                    <div class="mb-3">
+                        <textarea placeholder="Detail Deskripsi" type="text" style="resize:none; height:200px;" class="form-control" name="deskripsi_barang"></textarea>
+                    </div>
+                    <div class="mb-3">
+                        <button type="submit" name="create" class="btn btn-primary">Tambah barang</button>
+                    </div>
+                </div>
+            </form>
         </div>
     </div>
 </body>
